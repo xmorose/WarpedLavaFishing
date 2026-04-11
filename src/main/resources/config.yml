@@ -1,0 +1,39 @@
+# =============================================================================
+# WarpedLavaFishing
+# =============================================================================
+
+# Worlds where lava fishing is enabled. Leave empty to allow all worlds.
+allowed-worlds: []
+
+# How long the player has to wait for a fish to take interest, in ticks.
+# 20 ticks = 1 second. The wait time is randomised between min and max each cast.
+min-wait-ticks: 100
+max-wait-ticks: 600
+
+# Ticks subtracted from the wait timer per level of the Lure enchantment on
+# the player's fishing rod. 100 matches vanilla water fishing (5 seconds per
+# level). Set to 0 to disable Lure entirely on lava-cast hooks.
+lure-ticks-per-level: 100
+
+# -----------------------------------------------------------------------------
+# Vehicle item
+# -----------------------------------------------------------------------------
+# Because vanilla FishingHooks ignore velocity packets, the only way to bob a
+# fishing hook on lava is to mount it on another entity that DOES respect
+# velocity. We use an invisible Snowball projectile under the hood.
+#
+# Snowballs render as whatever item they are "carrying", and the vanilla client
+# silently ignores `setInvisible(true)` for projectile-item entities — so the
+# only reliable way to hide the snowball is to set its carried item to
+# something your server's resource pack renders as nothing.
+#
+# REQUIRED: ship a resource pack that defines an empty/invisible model for the
+# material + custom_model_data combination configured below. Without it, your
+# players will see this item bobbing alongside their fishing hook.
+#
+# If you do not configure a resource pack at all, set custom-model-data to 0
+# and pick a small, thematic material like FLINT or STONE_BUTTON — it will
+# still be visible, but at least it's intentional.
+vehicle-item:
+  material: MAP
+  custom-model-data: 1013

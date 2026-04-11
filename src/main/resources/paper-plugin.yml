@@ -1,0 +1,5 @@
+name: WarpedLavaFishing
+version: '1.0.0'
+main: dev.morose.warpedlavafishing.WarpedLavaFishing
+api-version: '1.21'
+description: Fish in lava with full bobbing physics, biting, and reel-in mechanics.
